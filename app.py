@@ -21,8 +21,6 @@ def login():
 def top_page():
     mail = request.form.get("mail")
     pw = request.form.get("pw")
-    # global login_mail
-    # login_mail = mail
 
     reuslt = db.login(mail,pw)
     if reuslt != None :
@@ -35,6 +33,7 @@ def top_page():
         error = "メール又はパスワードが間違いました"
         return render_template("login.html",error=error)
 
+# アカウント作成
 @app.route("/new_account")
 def new_account():
     session["new_account"] = True
@@ -48,12 +47,7 @@ def new_account():
 
 @app.route("/new_account_all",methods=["POST"])
 def new_account_all():
-    # global name
-    # global pw
-    # global mail
-    # global birth
-    # global class_name    
-    # global pow
+
     name = request.form.get("name")
     pw =request.form.get("pw")
     mail = request.form.get("mail")
@@ -61,6 +55,10 @@ def new_account_all():
     class_name = request.form.get("class_name")
     pow =request.form.get("gen")
 
+    list = db.select_mail()
+    flg = True
+    if mail in list:
+        flg = False
     session["new_account_data"] = [name,pw,mail,birth,class_name,pow]
     if pow == "0":
         p = "男"
@@ -74,14 +72,18 @@ def new_account_all():
         c = "高度情報工学科"
 
     if "new_account" in session:
-        return render_template("new_account_all.html",name=name,birth=birth,class_name=c,p=p,mail=mail)
+        if flg:
+            return render_template("new_account_all.html",name=name,birth=birth,class_name=c,p=p,mail=mail)
+        else :
+            s = "メールアドレスは重複しています"
+            return render_template("new_account.html",s=s)
     else :
         error="セッションエラー"
         return render_template("login.html",error=error)
 
 @app.route("/mail")
 def mail():
-    # global code
+
     code = ''.join(random.choices(string.ascii_letters,k=7))
     session["code"] = code
     mail = session["new_account_data"][2]
@@ -94,13 +96,7 @@ def mail():
 
 @app.route("/true")
 def code_true():
-    # global code
-    # global name
-    # global pw
-    # global mail
-    # global birth
-    # global class_name    
-    # global pow
+
     c = request.args.get("code")
 
     code = session["code"]
