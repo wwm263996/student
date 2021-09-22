@@ -57,8 +57,10 @@ def new_account_all():
 
     list = db.select_mail()
     flg = True
-    if mail in list:
-        flg = False
+    for i in list:
+        if mail in i:
+            flg = False
+            break
     session["new_account_data"] = [name,pw,mail,birth,class_name,pow]
     if pow == "0":
         p = "男"
