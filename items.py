@@ -9,8 +9,8 @@ def tt(code,mail):
     send_mail(to,subject,body)
 
 def send_mail(to,subject,body):
-    ID = "b.ou.sys20@morijyobi.ac.jp"
-    PASS = "13144621680wwm00"
+    ID = "mailaddress"
+    PASS = "password"
     HOST = "smtp.gmail.com"
     PORT = 587
 

@@ -121,6 +121,23 @@ def insert_student(name,kana,g,c):
     
     return True
 
+def select_mail():
+    conn = get_connection()
+    cur = conn.cursor()
+
+    sql = "SELECT mail FROM user"
+
+    try :
+        cur.execute(sql, ())
+    except Exception as e:
+        print("SQL実行に失敗：" , e)
+
+    result = cur.fetchall()
+
+    cur.close()
+    conn.close()
+
+    return result
 
 def select_student_2(mail):
     conn = get_connection()
@@ -190,3 +207,6 @@ def insert(name,pw,salt,mail,birth,pow,class_name):
     conn.commit()
     cur.close()
     conn.close()
+
+def get_connection():
+    return MySQLdb.connect(user='root',passwd="password",host='localhost',db='flask',charset="utf8")
