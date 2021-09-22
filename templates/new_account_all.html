@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<br>
+<br>
+<h2 class="top">情報一覧</h2>
+<table border="1" align="center">
+    <tr>
+        <th>名前</th>
+        <td>{{name}}</td>
+    </tr>
+    <tr>
+        <th>メールアドレス</th>
+        <td>{{mail}}</td>
+    </tr>
+    <tr>
+        <th>性別</th>
+        <td>{{p}}</td>
+    </tr>
+    <tr>
+        <th>生年月日</th>
+        <td>{{birth}}</td>
+    </tr>
+    <tr>
+        <th>クラス名
+        </th>
+        <td>{{class_name}}</td>
+    </tr>
+</table>
+<br>
+<form action="{{url_for('mail')}}" method="get">
+    <div class="btn_area">
+        <input type="submit" value="送信する">
+    </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<br>
+<h2 class="top">コード入力</h2>
+<form action="{{url_for('code_true')}}" method="get">
+    <div class="inputs">
+        <label class="label">コード</label>
+        <input class="input_form" type="text" name="code">
+    </div>
+    <div class="btn_area">
+        <input type="submit" value="送信">
+    </div>
+</form>
+    <p>{{mail_error}}</p>
+{% endblock %}

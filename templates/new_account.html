@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<br>
+<h2 class="top">新規登録画面</h3>
+<form action="{{url_for('new_account_all')}}" method="post">
+    <div class="inputs">
+        <label class="label">メールアドレス</label>
+        <input class="input_form" type="email" name="mail">
+    </div>
+    <div class="inputs">
+        <label class="label">名前</label>
+        <input class="input_form" type="text" name="name">
+    </div>
+    <div class="inputs">
+        <label class="label">パスワード</label>
+        <input class="input_form" type="password" name="pw">
+    </div>
+    <div class="inputs">
+        <label class="label">性別</label>
+        <label><input type="radio" name="gen" value="0" checked="checked">男</label>
+        <label><input type="radio" name="gen" value="1">女</label>
+    </div>
+    <div class="inputs">
+        <label class="label">クラス名</label>
+        <select name="class_name" class="inputform">
+            <option value="1">情報システム科</option>
+            <option value="2">ネットワークセキュリティ科</option>
+            <option value="3">高度情報工学科</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label class="label">生年月日</label>
+        <input type="date" name="birth">
+    </div>
+    <div class="btn_area">
+        <input type="reset" value="リセット"> <input type="submit" value="登録する">
+    </div>
+</form>
+
+    <br>
+    <div class="url">
+        <a href="{{url_for('login')}}">ログインフォームへ戻る</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{url_for('static',filename='favicon/favicon.ico')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <style>html {width: 100%;}
+        body {width: 90%;}
+        .header {width: 100%;position: fixed;}
+        .tt {font-size: larger;color: orange;font-family: "Comic Sans MS";}
+        /* .text {text-align: right;} */
+        .url {text-align: center;}
+        form {width: 500px;margin: 0 auto;}
+        .inputs {overflow: hidden;margin-bottom: 20px;}
+        .label {float: left;margin-right: 10px;width: 135px;border-left: solid 3px #FF6702;padding-left: 10px;}
+        .input_form {float: left;width: 300px;}
+        input[type="email"],
+        input[type="password"],
+        input[type="text"]
+        {
+            border: solid 1px #e0e0e0;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 15px;
+        }
+        .btn_area {text-align: center;}
+        input[type="submit"]{
+            background: #FF6701;
+            border: none;
+            color: #fff;
+            font-size:15px;
+            font-weight:bold;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
+        input[type="reset"]{
+            background: #aaa;
+            border: none;
+            color: #fff;
+            font-size:15px;
+            font-weight:bold;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
+        .top {text-align: center;color: peru;}
+        table tr th {
+            border: solid 1px #e0e0e0;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 15px;
+        }
+        table tr td {
+            border: solid 1px #e0e0e0;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 15px;
+        }
+    </style>
+    <title>学生管理システム</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{{url_for('student')}}">トップ</a></li>
+                <li><a href="{{url_for('student_all')}}">学生一覧</a></li>
+                <li><a href="{{url_for('teacher_student')}}">担任クラス学生一覧</a></li>
+                <li><a href="{{url_for('delete_student')}}">学生を削除</a></li>
+                <li><a href="{{url_for('logout')}}">ログアウト</a></li>
+            </ul>
+    
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- ここに各ページのコンテンツを埋め込む -->
+        {% endblock %}
+
+    </main>
+    
+
+</body>
+</html>

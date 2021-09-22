@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<br>
+<h2 class="top">ログインフォーム</h3>
+<form action="{{url_for('top_page')}}" method="post">
+    <div class="inputs">
+        <label class="label">メールアドレス</label>
+        <input class="input_form" type="email" name="mail">
+    </div>
+    <div class="inputs">
+        <label class="label">パスワード</label>
+        <input class="input_form" type="password" name="pw">
+    </div>
+    <div class="btn_area">
+        <input type="reset" value="リセット"> <input type="submit" value="ログイン">
+    </div>
+</form>
+<br>
+    <div class="url">
+        <a href="{{url_for('new_account')}}">新規登録の方はこちら</a>
+    </div>
+    {{error}}
+    {{s}}
+{% endblock %}

@@ -1,0 +1,27 @@
+footer {
+    height: 30px;
+    text-align: center;
+    background-color: cyan;
+}
+
+nav {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background:sandybrown;
+}
+
+nav ul {
+    display: flex;
+    padding: 0;
+    width: 90%;
+    margin: 0 auto;
+}
+
+nav ul li {
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    margin: 2px;
+    background: khaki;
+}
